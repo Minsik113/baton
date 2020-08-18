@@ -1,0 +1,103 @@
+/* *****************************************
+* **** 
+* **** logo, top-menu, search, my-info BOX
+* ****
+*******************************************/
+#top
+{
+    width: 1440px;
+    padding-left: 35px;
+    padding-right: 35px;
+    text-decoration: none;
+}
+
+#top-menubox
+{
+    display: inline-block;
+    /* float: right;  ??이거뭐에요?*/
+    
+}
+#top .top-menu
+{
+    display: inline-block;
+    font-size: 15px;
+    font-weight: normal;
+    vertical-align: middle;
+    text-align: center;
+    width: 80px;
+}
+
+#logo
+{   
+    display: inline-block;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#search
+{
+    border: 2px solid black;
+    width: 727px;
+    height: 54px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    margin-left: 35px;
+    font-size: 20px;
+    padding-left: 30px;
+}
+
+/* *****************************************
+* **** 
+* **** category BOX
+* ****
+*******************************************/
+#top-category
+{   
+    display: inline-block;
+    height: 80px;
+    width: 1320px;
+    margin-left: 35px;
+}
+
+#top-category ul li
+{   
+    list-style: none;
+    color: white;
+    background-color: black;
+    float: left;
+    line-height: 40px;
+    vertical-align: middle;
+    text-align: center;
+    padding-left: 0px;
+}
+
+#mid-category
+{
+    text-decoration: none;
+    color: white;
+    display: block;
+    width: 660px;
+    font-size: 15px;
+    font-weight: 600;
+}
+#mypage
+{
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    display: block;
+    width: 660px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#top-category .category
+{
+    text-decoration: none;
+    color: white;
+    display: block;
+    width: 110px;
+    font-size: 15px;
+    font-weight: 600;
+}
+

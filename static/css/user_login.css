@@ -1,0 +1,74 @@
+#top
+{
+    width: 1440px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+#top-menubox
+{
+    display: inline-block;
+    float: right;
+}
+#top .top-menu
+{
+    display: inline-block;
+    font-size: 15px;
+    font-weight: normal;
+    color: black;
+    vertical-align: middle;
+    text-align: center;
+    width: 80px;
+}
+
+#logo
+{   
+    display: inline-block;
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+}
+
+#login-info
+{
+    margin-left: 35px;
+    margin-top: 200px;
+    padding-left: 430px;
+}
+
+#id-box, #pw-box
+{
+    margin-bottom: 30px;
+    
+}
+#id-text, #pw-text
+{
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    width: 100px;
+    vertical-align: middle;
+}
+
+#id-input, #pw-input
+{
+    border: 2px solid black;
+    width: 351px;
+    height: 54px;
+    margin-left: 115px;
+}
+
+#login-button
+{
+    width: 572px;
+    height: 91px;
+    border: solid;
+    background-color: black;
+    font-size: 25px;
+    color: white;
+}
+
+.option
+{
+    font-size: 15px;
+}

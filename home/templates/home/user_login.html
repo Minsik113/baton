@@ -1,0 +1,60 @@
+<ExtendsNode: extends 'home.html'>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+<link rel="stylesheet" href="/static/css/user_login.css">
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>barter</title>
+</head>
+
+<style type="text/css">
+    a:link { color: black; text-decoration: none;}
+    a:visited { color: black; text-decoration: none;}
+    a:hover { color: black; text-decoration: none;}
+    p { margin-bottom: 0em;}
+</style>
+
+<body>
+    <div id="top">
+        <a id="logo" href="{% url 'home' %}">barter</a>
+        <div id="top-menubox">
+            <a href="{% url 'user_login' %}" class="top-menu" >로그인</a>
+            <a href="{% url 'user_register' %}" class="top-menu" >회원가입</a>
+            <a href="{% url 'service_notice' %}" class="top-menu" >공지사항</a>
+            <a href="{% url 'service_center' %}" class="top-menu" >고객센터</a>
+        </div>
+    </div>
+
+    <div id="login-info">
+        <form method="POST" action="{%url 'user_login'%}">
+        {% csrf_token %}
+
+            
+            <div id="id-box">
+                <p id="id-text">아이디</p>
+                <input name="username" type="text" id="id-input">
+                <br>
+            </div>
+
+            <div id="pw-box">
+                <p id="pw-text">비밀번호</p>
+                <input name="password" type="password" id="pw-input">
+                <br>
+            </div>
+
+            <input type="submit" value="로그인" id="login-button"/>
+            <br>
+
+        
+        </form>
+
+        <a href="#" class="option">아이디 찾기</a>
+        <a href="#" class="option">비밀번호 찾기</a>
+        <a href="signup" class="option">회원가입하기</a>
+    </div>
+
+</body>

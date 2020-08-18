@@ -1,0 +1,131 @@
+<ExtendsNode: extends 'home.html'>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+<link rel="stylesheet" href="/static/css/user_register.css">
+<link rel="javascript" type="text/javascript" href="/static/js/home.js">
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>barter</title>
+</head>
+
+<style type="text/css">
+    a:link { color: black; text-decoration: none;}
+    a:visited { color: black; text-decoration: none;}
+    a:hover { color: black; text-decoration: none;}
+    ul>li {list-style: none}
+    p { margin-bottom: 0em;}
+</style>
+
+<body>
+    <div id="top">
+        <a id="logo" href="{% url 'home' %}">barter</a>
+        <div id="top-menubox">
+            <a href="{% url 'user_login' %}" class="top-menu" >로그인</a>
+            <a href="{% url 'user_register' %}" class="top-menu" >회원가입</a>
+            <a href="{% url 'service_notice' %}" class="top-menu" >공지사항</a>
+            <a href="{% url 'service_center' %}" class="top-menu" >고객센터</a>
+        </div>
+    </div>
+    
+    <hr id="line">
+
+    <form method="POST" action="{%url 'user_register'%}">
+        {% csrf_token %}
+
+        <div id="signup_info">
+
+            <div class="info-box">
+                <p class="info-text">아이디</p>
+                <input name="username" type="text" class="info-input">
+                <br>
+            </div>
+
+            <div class="info-box">
+                <p class="info-text">비밀번호</p>
+                <input name="password1" type="password" class="info-input">
+                <br>
+            </div>
+
+            <div class="info-box">
+                <p class="info-text">비밀번호 확인</p>
+                <input name="password2" type="password" class="info-input">
+                <br>
+            </div>
+
+            <div class="info-box">
+                <p class="info-text">이름</p>
+                <input name="name" type="text" class="info-input">
+                <br>
+            </div>
+
+            <div class="info-box">
+                <p class="info-text">휴대전화</p>
+                <input name="tel1" type="tel" pattern="[0-9]{3}" class="tel-input">
+                -
+                <input name="tel2" type="tel" pattern="[0-9]{4}" class="tel-input">
+                -
+                <input name="tel3" type="tel" pattern="[0-9]{4}" class="tel-input">
+                <br>
+            </div>
+
+            <div class="info-box">
+                <p class="info-text">이메일</p>
+                <input name="email", type="email" class="info-input">
+                <br>
+            </div>
+
+        </div>
+
+        <ul class="terms">
+            <li class="checkbox1">
+                <ul class="checkAll">
+                    <li>
+                        <input type="checkbox" name="chkAll" class="checkBtn">
+                        이용약관 및 개인정보수집 및 이용, 쇼핑정보 수신(선택)에 모두 동의합니다.
+                    </li>
+                </ul>
+            </li>
+    
+            <li class="checkbox2">
+    
+                <ul class="terms-title">
+                    <li>[필수] 이용약관 동의</li>
+                </ul>
+    
+                <textarea id="terms1">이용약관 내용</textarea>
+                
+                <ul class="agree">
+                    이용약관에 동의하십니까?
+                    <input type="checkbox" name="chk" id="checkBtn1">
+                    동의함
+                </ul>
+            </li>
+    
+            <li class="checkbox3">
+    
+                <ul class="terms-title">
+                    <li>[필수] 개인정보수집 및 이용 동의</li>
+                </ul>
+    
+                <textarea id="terms2">개인정보수집 내용</textarea>
+    
+                <ul class="agree">
+                    개인정보 수집 및 이용에 동의하십니까?
+                    <input type="checkbox" name="chk" id="checkBtn2">
+                    동의함
+                </ul>
+            </li>
+        </ul>
+
+        <input type="submit" value="가입하기" class="signupBtn" class="info-input" onclick="checked()">
+    </form>
+
+
+
+
+
+</body>
