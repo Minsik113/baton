@@ -39,8 +39,11 @@
             <a href="{% url 'user_register' %}" class="top-menu" >회원가입</a>
             <a href="{% url 'service_notice' %}" class="top-menu" >공지사항</a>
             <a href="{% url 'service_center' %}" class="top-menu" >고객센터</a>
+            <a href="{% url 'product_register' %}" class="top-memu" >상품등록</a>
+            <a href="{% url 'index' %}">채팅</a>
         </div>
-    </div> <!-- 로고, 정보부분 END-->
+    </div><!-- 로고, 정보부분 END-->
+    <br/>
     <div> <!-- 검색창 부분 START-->
         <div>
             <input id="search" type="text", placeholder="바꾸고 싶은 물건을 검색해 보세요!">
@@ -48,8 +51,8 @@
             <div id="top-menubox">
                 {% if user.is_authenticated %}
                 <a href="{% url 'product_add' %}">상품추가</a>
-                <a href="{% url 'chat_room' %}">메시지</a>
                 <a href="{% url 'product_like' %}">관심상품</a>
+                <a href="{% url 'index' %}">채팅</a>
                 <a href="{% url 'user_mypage' %}">마이페이지</a>
     
                 {% else %}

@@ -7,5 +7,6 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls)
     , path('', include('home.urls'))
-    ,
+    , path('chat/', include('chat.urls'))
+    , 
 ]

@@ -1,0 +1,135 @@
+{% load static %}
+<link rel="stylesheet" href="/static/css/home.css">
+<link rel="stylesheet" href="/static/css/product_register.css">
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baton</title>
+</head>
+
+<style type="text/css">
+    a:link { color: black; text-decoration: none;}
+    a:visited { color: black; text-decoration: none;}
+    a:hover { color: black; text-decoration: none;}
+    ul {padding-left: 0em;}
+</style>
+
+<body>
+    <div id="top">
+            <a id="logo" href="{% url 'home' %}">barter</a>
+            <div id="top-menubox">
+                {% if user.is_authenticated %}
+                <a href="{% url 'user_logout' %}" class="top-menu" >로그아웃</a>
+                {% else %}
+                <a href="{% url 'user_login' %}" class="top-menu" >로그인</a>
+                {% endif %}
+                <a href="{% url 'user_register' %}" class="top-menu" >회원가입</a>
+                <a href="{% url 'service_notice' %}" class="top-menu" >공지사항</a>
+                <a href="{% url 'service_center' %}" class="top-menu" >고객센터</a>
+            </div>
+        </div>
+
+        <br>
+
+        <input id="search" type="text", placeholder="바꾸고 싶은 물건을 검색해 보세요!">
+
+        <nav id="top-category">
+            <ul>
+                <li><a id="mid-category" href="{% url 'home' %}">카테고리</a></li>
+                <li><a id="mypage" href="{% url 'user_mypage' %}">마이페이지</a></li>
+                <li><a class="category" href="#">전체</a></li>
+                <li><a class="category" href="#">의류</a></li>
+                <li><a class="category" href="#">식품</a></li>
+                <li><a class="category" href="#">도서/음반</a></li>
+                <li><a class="category" href="#">전자제품</a></li>
+                <li><a class="category" href="#">출산/육아</a>
+                <li><a class="category" href="#">취미</a></li>
+                <li><a class="category" href="#">완구</a></li>
+                <li><a class="category" href="#">리빙</a></li>
+                <li><a class="category" href="#">반려동물</a></li>
+                <li><a class="category" href="#">헬스</a></li>
+                <li><a class="category" href="#">DIY</a></li>
+            </ul>
+        </nav>
+
+    <form method="POST" action="{%url 'product_register'%}">
+        {% csrf_token %}
+
+        <div id="my-product-info">
+
+            <p class="product-head-text">내 상품 정보</p>
+
+            <div class="product-infobox">
+                <p class="product-text">상품이름</p>
+                <input name="name" type="text" id="product-name-input">
+            </div>
+
+            <div class="product-infobox">
+                <p class="product-text">카테고리</p>
+                <select class="select">
+                    <option name="all">전체</option>
+                    <option name="clothing">의류</option>
+                    <option name="food">음식</option>
+                    <option name="book-music">도서/음반</option>
+                    <option name="electronics">전자제품</option>
+                    <option name="infant-care">출산/육아</option>
+                    <option name="hobby">취미</option>
+                    <option name="toy">완구</option>
+                    <option name="living">리빙</option>
+                    <option name="pet">반려동물</option>
+                    <option name="health">헬스</option>
+                    <option name="diy">DIY</option>
+                </select>
+            </div>
+
+            <div class="product-infobox">
+                <p class="product-text">상품설명</p>
+                <input name="description" type="text" value="상품의 특징, 훼손 정도, 부속물 여부 등 상품의 상태를 자세히 적어주시면 상품을 거래하는데 큰 도움이 됩니다." id="product-detail-input">
+            </div>
+        </div>
+
+        <div id="trade-product-info">
+            <p class="product-head-text" id="trade">교환 상품 정보</p>
+
+            <div class="product-infobox">
+                <p id="want-text">원하는 물건</p>
+                <div class="want">
+                    <input name="want" type="text" class="want-product">
+                </div>
+                <br>
+                <input type="checkbox" class="deal">
+                다른 물건 제안가능
+            </div>
+        </div>
+
+        <div id="trade-info">
+            <div class="trade-infobox">
+                <p class="product-text">우편번호</p>
+                <input name="postalcode" type="number" id="trade-postalcode">
+            </div>
+
+            <div class="trade-infobox">
+                <p class="product-text">주소지</p>
+                <input name="juso1" type="text" id="trade-adress1"><br>
+                <input name="juso2" type="text" id="trade-adress2"><br>
+                <input type="checkbox" class="parcel">
+                택배가능
+            </div>
+
+            <div class="trade-infobox">
+                <p class="product-text">교환방법</p>
+                <select class="select">
+                    <option name="parcel">택배</option>
+                    <option name="meet">직거래</option>
+                </select><br>
+                <input name="trade-detail" type="text" id="trade-detail-input">
+            </div>
+
+            <input type="button" value="취소하기" class="cancleBtn">
+            <input type="submit" value="등록하기" class="registerBtn">
+        </div>
+    </form>
+</body>

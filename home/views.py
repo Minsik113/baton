@@ -1,12 +1,14 @@
-#import json
-
+import json
 from django.shortcuts import render, redirect
-#from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.views.decorators.http import require_http_methods
+from .models import Product
+from django.shortcuts import render
+from django.views.generic.edit import FormView
 
 @require_http_methods(["GET", "POST"])
 
@@ -51,11 +53,20 @@ def service_center(request):
 def user_mypage(request):
     return render(request, 'home/user_mypage.html')
 
-def product_add(request): #상품추가
-    return render(request, 'home/product_add.html')
-
-def chat_room(request): #메시지
-    return render(request, 'home/chat_room.html')
+def product_register(request):
+    if request.method == "POST":
+        product = Product(
+            name = request.POST.get('name',False),
+            description = request.POST.get('description',False),
+            want = request.POST.get('want',False),
+            postalcode =  request.POST.get('postalcode',False),
+            juso1 = request.POST.get('juso1',False),
+            juso2 = request.POST.get('juso2',False),
+            tradedetail = request.POST.get('trade-detail',False),
+        )
+        product.save()
+    return render(request, 'home/product_register.html')
 
 def product_like(request): #관심상품
     return render(request, 'home/product_like.html')
+
